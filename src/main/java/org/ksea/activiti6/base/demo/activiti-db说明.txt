@@ -1,0 +1,14 @@
+Activiti 中的表结构说明
+
+
+act_ge_  :  activiti_general_   表示activiti的通用表
+
+act_re_  :  activiti_repository_ 表示用于存储activiti中的部署信息，以及流程定义信息
+
+act_id_  :  activiti_identity_   表示用于存储activiti用户身份信息
+
+act_ru_  :  activiti_runtime_    表示用于存储流程在运行时的数据表，此表相当于临时表,当流程结束之后,表数据将被清空
+
+act_hi_  :  activiti_history_    表示用于存储流程历史数据信息的表，当流程执行结束之后，流程数据将被记录在流程历史数据表中
+
+act_dmn_ :  activiti的规则引擎表
