@@ -3,12 +3,57 @@ Activiti 中的表结构说明
 
 act_ge_  :  activiti_general_   表示activiti的通用表
 
+    act_ge_bytearray 用于存储流程资源的表，如流程定义信息 bpmn文件,流程图片
+    act_ge_property  用于存储属性表，通过 key value的形式
+
+
+
+
 act_re_  :  activiti_repository_ 表示用于存储activiti中的部署信息，以及流程定义信息
+
+       act_re_deployment 用于存储流程部署的信息
+       act_re_procdef  用于存储流程定义的数据信息表
+
+
+
 
 act_id_  :  activiti_identity_   表示用于存储activiti用户身份信息
 
+        act_id_user 用户表
+        act_id_group 用户组表
+        act_id_membership  用户与用户组表的关联表
+        act_id_info 用于存储用户的信息
+                    其中其 TYPE_ 字段有三个值
+                    account　表示存储的是账户信息
+                    userinfo 表述存储的用户信息
+                    NULL 表示存储的是其它信息
+
+
+
+
 act_ru_  :  activiti_runtime_    表示用于存储流程在运行时的数据表，此表相当于临时表,当流程结束之后,表数据将被清空
 
+         act_ru_execution 用于保存流程实例 执行流的数据表
+         act_ru_task 流程任务表
+         act_ru_variable 变量表
+         act_ru_identitylink 流程任务与用户关联表
+
+         act_ru_job一般工作表
+         act_ru_deadletter_job 无法执行的工作表 如：定时工作 或者无法执行有重复执行的表 就会存储到这里
+         act_ru_suspended_job  被中断的任务保存的表
+         act_ru_timer_job      用于保存需要定时执行的工作表
+         act_ru_event_subscr   事件表
+
+
+
 act_hi_  :  activiti_history_    表示用于存储流程历史数据信息的表，当流程执行结束之后，流程数据将被记录在流程历史数据表中
+
+         act_hi_procinst 流程实例历史数据表
+         act_hi_taskinst 任务历史表
+         act_hi_varinst  变量历史表
+         act_hi_actinst  历史行为表 用于记录活动流程的每个行为记录
+         act_hi_attachment  保存附件表
+         act_hi_comment     保存评论表
+
 
 act_dmn_ :  activiti的规则引擎表
